@@ -1,13 +1,15 @@
 #ifndef DATE
 #define DATE
 
+#include <string>
+
 struct Date {
 private:
     int day;
     int month;
     int year;
 public:
-    Date(int day, int month, int year);
+    Date(std::string date);
     bool IsValidDate();
     void UpdateDate();
 };
