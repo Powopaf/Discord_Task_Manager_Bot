@@ -1,10 +1,28 @@
 #include "date.h"
 #include <ctime>
 #include "help.cpp"
+#include <cstdlib>
+#include <stdexcept>
 
-Date::Date(std::string date) 
-{
-    // TODO
+Date::Date(std::string date) {
+    /*
+     * format of the given string should be:
+     * DD/MM/YYYY with 0 to complete if nessessary
+     */
+    day = atoi(date.substr(0, 2).data());
+    if (day == 0)
+        throw std::invalid_argument("Day is not a number");
+    
+    month = atoi(date.substr(3, 2).data());
+    if (month == 0)
+        throw std::invalid_argument("Month is not a number");
+
+    year = atoi(date.substr(6, 4).data());
+    if (year == 0)
+        throw std::invalid_argument("Year not a number");
+
+    if (!IsValidDate())
+        throw std::invalid_argument("Date is passed");
 }
 
 bool Date::IsValidDate() {
