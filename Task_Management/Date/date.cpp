@@ -1,6 +1,5 @@
 #include "date.h"
 #include <ctime>
-#include "help.cpp"
 #include <cstdlib>
 #include <stdexcept>
 
@@ -23,6 +22,21 @@ Date::Date(std::string date) {
 
     if (!IsValidDate())
         throw std::invalid_argument("Date is passed");
+}
+
+static bool february(int year) {
+    /*
+     * check leap year
+     */
+
+    if (year % 100 == 0 && year % 400 == 0)
+        return true;
+
+    if (year % 100 != 0 && year % 4 == 0)
+        return true;
+
+    else
+        return false;
 }
 
 bool Date::IsValidDate() {
