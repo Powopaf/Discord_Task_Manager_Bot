@@ -24,7 +24,7 @@ Date::Date(std::string date) {
     if (year == 0)
         throw std::invalid_argument("Year not a number");
 
-    if (!IsValidDate())
+    if (!IsValidDate(day, month, year))
         throw std::invalid_argument("Date is passed");
 }
 
@@ -43,33 +43,37 @@ static bool february(int year) {
         return false;
 }
 
-bool Date::IsValidDate() {
+bool IsValidDate(int d, int m, int y) {
     time_t t;
     time(&t);
     struct tm* time = localtime(&t);
 
-    if (month < 1 || month > 12)
+    if (m < 1 || m > 12)
         return false;
 
-    if (year < time->tm_year + 1900)
+    if (y < time->tm_year + 1900)
         return false;
 
-    if (day < 0 || day > 31)
+    if (d < 0 || d > 31)
         return false;
 
-    if (year > time->tm_year) {
+    if (y > time->tm_year) {
         if (time->tm_mon == 2) {
-            bool f = february(year);
-            return f ? day <= 29 : day <= 28;
+            bool f = february(y);
+            return f ? d <= 29 : d <= 28;
         }
         return true;
     }
 
-    if (month < time->tm_mon)
+    if (m < time->tm_mon)
         return false;
 
-    if (month == time->tm_mon && day < time->tm_mday)
+    if (m == time->tm_mon && d < time->tm_mday)
         return false;
 
     return true;
+}
+
+void Date::UpdateDate(int d, int m, int y) {
+    
 }

@@ -11,7 +11,7 @@ private:
     Date date;
     char priority; // must be between
 public:
-    Task(std::string name, std::string d, char priority='0');
+    Task(std::string name, std::string d, char priority);
     void UpdateTask(); // we substract a day and change the priority
 };
 
