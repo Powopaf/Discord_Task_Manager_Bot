@@ -9,6 +9,7 @@ private:
     int month;
     int year;
 public:
+    Date();
     Date(std::string date);
     bool IsValidDate();
     void UpdateDate();

@@ -3,6 +3,10 @@
 #include <cstdlib>
 #include <stdexcept>
 
+Date::Date() {
+    throw std::invalid_argument("No date given");
+}
+
 Date::Date(std::string date) {
     /*
      * format of the given string should be:
