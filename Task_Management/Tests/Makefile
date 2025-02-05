@@ -10,5 +10,7 @@ test_Date: $(OBJ)
 	$(CC) $(CFLAGS) $(INC) -o $(TARGET) $(OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+run: test_Date
+	./$(TARGET)
 clean:
 	rm -f $(TARGET) $(OBJ)

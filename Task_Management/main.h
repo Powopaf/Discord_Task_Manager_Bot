@@ -6,5 +6,6 @@
 #define MAIN_H
 
 #include <stdlib.h>;
+#include <stdio.h>
 
 #endif //MAIN_H
