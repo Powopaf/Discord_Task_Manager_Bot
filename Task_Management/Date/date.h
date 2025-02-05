@@ -9,11 +9,18 @@
 #include <stdio.h>
 #include <time.h>
 
+/**
+ * \brief Structure to represent a date.
+ *
+ * This structure holds the day, month, and year values of a date.
+ */
+
 struct Date {
     int day;
     int month;
     int year;
 };
+
 /**
  * \brief Checks if the given date is valid.
  *
@@ -23,6 +30,7 @@ struct Date {
  * \param date The date to be validated.
  * \return 0 if the date is valid, 1 otherwise.
  */
+
 char isValidDate(struct Date date);
 
 /**
@@ -35,5 +43,16 @@ char isValidDate(struct Date date);
  */
 
 char isDatePassed(struct Date date);
+
+/**
+ * \brief Parses a date from a string.
+ *
+ * This function parses a date from a string in the format "dd/mm/yyyy".
+ *
+ * \param date The string containing the date.
+ * \return The parsed date.
+ */
+
+struct Date parserDate(const char* date)
 
 #endif //DATE_H

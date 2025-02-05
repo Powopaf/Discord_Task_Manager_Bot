@@ -54,3 +54,9 @@ char isDatePassed(struct Date date) {
     }
     return 0;
 }
+
+struct Date parserDate(const char* date) {
+    // TODO: Implement this function
+
+    return (struct Date) {0, 0, 0};
+}

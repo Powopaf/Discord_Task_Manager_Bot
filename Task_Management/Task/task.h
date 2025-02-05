@@ -8,11 +8,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "../Date/date.h"
+
+/**
+ * \struct Task
+ * \brief Represents a task with a name, priority, and date.
+ */
 
 struct Task {
-    char *name;
+    char* name;
     int priority;
-    int duration;
+    struct Date date;
 };
+
+/**
+ * \brief Creates a new task for the given user.
+ *
+ * \param username The name of the user for whom the task is being created.
+ * \return A pointer to the newly created task.
+ */
+
+struct Task** createTask(const char* username)
 
 #endif //TASK_H
