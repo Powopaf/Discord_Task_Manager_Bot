@@ -12,19 +12,45 @@ void tearDown(void) {
     // clean stuff up here
 }
 
-void test_isDatePassed(void) {
+void test_DatePassed(void) {
     struct Date date = {1, 1, 2020};
     TEST_ASSERT_EQUAL(1, isDatePassed(date));
 }
 
-void test_isDatePassed2(void) {
+void test_notDatePassed(void) {
+
     struct Date date = {1, 1, 2025};
-    TEST_ASSERT_EQUAL(0, isDatePassed(date));
+    TEST_ASSERT_EQUAL(1, isDatePassed(date));
+}
+
+void test_isValidDate(void) {
+    struct Date date8 = {17, 07, 2004};
+    TEST_ASSERT_EQUAL(0, isValidDate(date8));
+}
+
+void test_isNotValidDate(void) {
+    // not valid date
+    struct Date date1 = {1, 13, -1};
+    struct Date date2 = {0, 1, 2020};
+    struct Date date3 = {32, 1, 2020};
+    struct Date date4 = {29, 2, 2023};
+    struct Date date5 = {-1, 2, 2025};
+    struct Date date6 = {29, 15, 2020};
+    struct Date date7 = {29, -1, 2020};
+    TEST_ASSERT_EQUAL(1, isValidDate(date1));
+    TEST_ASSERT_EQUAL(1, isValidDate(date2));
+    TEST_ASSERT_EQUAL(1, isValidDate(date3));
+    TEST_ASSERT_EQUAL(1, isValidDate(date4));
+    TEST_ASSERT_EQUAL(1, isValidDate(date5));
+    TEST_ASSERT_EQUAL(1, isValidDate(date6));
+    TEST_ASSERT_EQUAL(1, isValidDate(date7));
 }
 
 int main() {
     UNITY_BEGIN();
-    RUN_TEST(test_isDatePassed);
-    RUN_TEST(test_isDatePassed2);
+    RUN_TEST(test_isValidDate);
+    RUN_TEST(test_isNotValidDate);
+    RUN_TEST(test_DatePassed);
+    RUN_TEST(test_notDatePassed);
     return UNITY_END();
 }

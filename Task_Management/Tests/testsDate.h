@@ -7,5 +7,6 @@
 
 #include "../Date/date.h"
 #include "../Unity/unity.h"
+#include <time.h>
 
 #endif //TESTS_H
