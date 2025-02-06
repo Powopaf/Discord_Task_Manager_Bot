@@ -13,12 +13,13 @@ void taskToFile(const struct Task* task, const char* name) {
     }
     char* fileName = malloc(strlen(name) + 1);
     strcpy(fileName, name);
-    FILE* file = fopen("user1", "a");
+    FILE* file = fopen(name, "a+");
     if (file == NULL) {
         printf("Error opening file! %s\n", fileName);
         free(fileName);
         return;
     }
+    printf("SUCCESS\n");
     fprintf(file, "%s %d %02d/%02d/%04d\n", task->name, task->priority, task->date.day, task->date.month, task->date.year);
     fclose(file);
     free(fileName);

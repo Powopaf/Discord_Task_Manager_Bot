@@ -20,5 +20,7 @@ $(TARGET): $(OBJ)
 run: $(TARGET)
 	./$(TARGET)
 
+.PHONY: clean
+
 clean:
-	rm -f $(TARGET) $(OBJ)
+		find . -type f \( -name "*.o" -o -name "*.out" \) -delete

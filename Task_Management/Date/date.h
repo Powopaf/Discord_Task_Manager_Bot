@@ -50,6 +50,6 @@ char isDatePassed(struct Date date);
  * \return 0 if the date was successfully parsed, 1 otherwise.
  */
 
-char parserDate(char* date, struct Date* d);char parserDate(char* date, struct Date* d);
+char parserDate(const char* date, struct Date* d);char parserDate(const char* date, struct Date* d);
 
 #endif //DATE_H

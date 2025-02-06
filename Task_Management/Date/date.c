@@ -3,8 +3,11 @@
 //
 
 #include "date.h"
+#include <time.h>
+#include <stdlib.h>
+#include <string.h>
 
-char isValidDate(struct Date date) {
+char isValidDate(const struct Date date) {
     if (date.year < 0) {
         return 1;
     }
@@ -35,10 +38,10 @@ char isValidDate(struct Date date) {
     return 0;
 }
 
-char isDatePassed(struct Date date) {
+char isDatePassed(const struct Date date) {
     time_t now;
     time(&now);
-    struct tm* local = localtime(&now);
+    const struct tm* local = localtime(&now);
     if (date.year < local->tm_year + 1900) {
         return 1;
     }
@@ -55,13 +58,13 @@ char isDatePassed(struct Date date) {
     return 0;
 }
 
-char parserDate(char* date, struct Date* d) {
+char parserDate(const char* date, struct Date* d) {
     if (date == NULL || strlen(date) != 10) {
         return EXIT_FAILURE;
     }
     char copy[11];
     strcpy(copy, date);
-	char* token = strtok(copy, "/");
+	const char* token = strtok(copy, "/");
     int j = 0;
     while (token != NULL) {
         switch (j) {

@@ -2,7 +2,8 @@
 // Created by paf on 2/5/25.
 //
 
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
 #include "Task/task.h"
 #include "UserData/createFile.h"
 
@@ -14,6 +15,7 @@ int main() {
     task->date.month = 1;
     task->date.year = 2026;
     taskToFile(task, "user1");
+    printf("oui\n");
     free(task);
     return EXIT_SUCCESS;
 }

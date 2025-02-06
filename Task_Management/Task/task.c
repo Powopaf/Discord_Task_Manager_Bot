@@ -9,10 +9,7 @@
 
 const char* startPath = "../UserData/";
 
-static void freeTask(struct Task** task, size_t l) {
-    if (task == NULL) {
-        return;
-    }
+static void freeTask(struct Task** task, const size_t l) {
     size_t i = 0;
     while (i <= l) {
         free((task[i])->name);
@@ -24,22 +21,22 @@ static void freeTask(struct Task** task, size_t l) {
 
 struct Task** createTask(const char* username) {
     if (username == NULL || strlen(username) == 0) {
-        return NULL;
+        return nullptr;
     }
     const size_t length = strlen(startPath);
     char *path = malloc(length + strlen(username) + 1);
     strcpy(path, startPath);
     strcat(path, username);
     if (path == NULL) {
-        return NULL;
+        return nullptr;
     }
     FILE* file = fopen(path, "w");
     if (!file) {
         free(path);
-        return NULL;
+        return nullptr;
     }
 
-    char* line = NULL;
+    char* line = nullptr;
     size_t len = 0;
     ssize_t read;
     size_t i = 0;
@@ -50,7 +47,7 @@ struct Task** createTask(const char* username) {
             free(path);
             freeTask(task, i);
             fclose(file);
-            return NULL;
+            return nullptr;
         }
         char* token = strtok(line, " ");
         char j = 0;
@@ -68,11 +65,13 @@ struct Task** createTask(const char* username) {
                     break;
 
                 default:
-                    return NULL;
+                    free(path);
+                    return nullptr;
             }
             j++;
         }
         i++;
     }
+    free(path);
     return task;
 }
