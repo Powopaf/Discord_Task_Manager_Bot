@@ -2,7 +2,10 @@
 // Created by paf on 2/5/25.
 //
 
-#include "testsDate.h"
+#include "../Date/date.h"
+#include "../Unity/unity.h"
+#include "./Utils/Date/utilsDate.h"
+#include <time.h>
 
 void setUp(void) {
     // set stuff up here
@@ -19,7 +22,9 @@ static void test_DatePassed(void) {
 
 static void test_notDatePassed(void) {
     struct Date date = {1, 1, 3000};
-    TEST_ASSERT_EQUAL(1, isDatePassed(date));
+    TEST_ASSERT_EQUAL(0, isDatePassed(date));
+    struct Date date2 = {1, 1, 2020};
+    TEST_ASSERT_EQUAL(1, isDatePassed(date2));
 }
 
 static void test_isValidDate(void) {
@@ -33,7 +38,7 @@ static void test_isNotValidDate(void) {
     struct Date date2 = {0, 1, 2020};
     struct Date date3 = {32, 1, 2020};
     struct Date date4 = {29, 2, 2023};
-    struct Date date5 = {-1, 2, 2025};
+    struct Date date5 = {31, 2, 2025};
     struct Date date6 = {29, 15, 2020};
     struct Date date7 = {29, -1, 2020};
     TEST_ASSERT_EQUAL(1, isValidDate(date1));
