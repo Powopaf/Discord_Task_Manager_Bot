@@ -46,14 +46,15 @@ char isValidDate(struct Date date);
 char isDatePassed(struct Date date);
 
 /**
- * \brief Parses a date from a string.
+ * \brief Parses a date string into a Date structure.
  *
- * This function parses a date from a string in the format "dd/mm/yyyy".
+ * This function takes a date string in the format "YYYY-MM-DD" and parses it into a Date structure.
  *
- * \param date The string containing the date.
- * \return The parsed date.
+ * \param date The date string to be parsed.
+ * \param d Pointer to the Date structure where the parsed date will be stored.
+ * \return 0 if the date was successfully parsed, 1 otherwise.
  */
 
-char parserDate(char* date, struct Date* d);
+char parserDate(char* date, struct Date* d);char parserDate(char* date, struct Date* d);
 
 #endif //DATE_H

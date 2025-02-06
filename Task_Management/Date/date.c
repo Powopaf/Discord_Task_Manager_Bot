@@ -59,6 +59,7 @@ char parserDate(char* date, struct Date* d) {
     if (date == NULL || strlen(date) != 10) {
         return EXIT_FAILURE;
     }
+    d = malloc(sizeof(struct Date));
 	char* token = strtok(date, "/");
     char j = 0;
     while (token != NULL) {
@@ -77,5 +78,5 @@ char parserDate(char* date, struct Date* d) {
         }
         j++;
     }
-    return EXIT_SUCCESS;
+    return isValidDate(*d) == 0 && isDatePassed(*d) == 0 ? EXIT_SUCCESS : EXIT_FAILURE;
 }

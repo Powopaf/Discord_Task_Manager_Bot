@@ -1,16 +1,25 @@
 CC=gcc
-CFLAGS=
+CFLAGS=-Wall -g
+
 TARGET=test.out
+
 SRC=testsDate.c \
-	../Unity/unity.c \
-	../Date/date.c
-INC=-I../Unity -I../Date
+ ../Unity/unity.c \
+ ../Date/date.c \
+ Utils/Date/utilsDate.c
+
 OBJ=$(SRC:.c=.o)
-test_Date: $(OBJ)
-	$(CC) $(CFLAGS) $(INC) -o $(TARGET) $(OBJ)
+
+INC=-I../Unity -I../Date -IUtils
+
 %.o: %.c
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
-run: test_Date
+
+$(TARGET): $(OBJ)
+	$(CC) $(CFLAGS) $(INC) -o $(TARGET) $(OBJ)
+
+run: $(TARGET)
 	./$(TARGET)
+
 clean:
 	rm -f $(TARGET) $(OBJ)

@@ -61,7 +61,7 @@ struct Task** createTask(const char* username) {
                     task[i]->priority = atoi(token);
                     break;
                 case 2:
-                    task[i]->date = parserDate(token);
+                    parserDate(token, &task[i]->date);
                     break;
 
                 default:
