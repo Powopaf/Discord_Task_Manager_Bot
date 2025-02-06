@@ -3,4 +3,15 @@ project(Task_Management C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(Task_Management main.c)
+add_executable(Task_Management
+    main.c
+    UserData/createFile.c
+    Task/task.c
+    Date/date.c
+)
+
+include_directories(
+    Date
+    Task
+    UserData
+)

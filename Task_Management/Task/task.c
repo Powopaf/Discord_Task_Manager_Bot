@@ -3,8 +3,11 @@
 //
 
 #include "task.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
 
-const char* startPath = "../UserDate/";
+const char* startPath = "../UserData/";
 
 static void freeTask(struct Task** task, size_t l) {
     if (task == NULL) {

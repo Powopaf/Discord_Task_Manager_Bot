@@ -5,9 +5,6 @@
 #ifndef TASK_H
 #define TASK_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
 #include "../Date/date.h"
 
 /**
@@ -28,6 +25,6 @@ struct Task {
  * \return A pointer to the newly created task.
  */
 
-struct Task** createTask(const char* username)
+struct Task** createTask(const char* username);
 
 #endif //TASK_H

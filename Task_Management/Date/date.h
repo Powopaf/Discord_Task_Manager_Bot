@@ -5,11 +5,6 @@
 #ifndef DATE_H
 #define DATE_H
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <string.h>
-
 /**
  * \brief Structure to represent a date.
  *
