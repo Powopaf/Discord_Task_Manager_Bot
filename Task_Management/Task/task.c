@@ -50,7 +50,7 @@ struct Task** createTask(const char* username) {
             return NULL;
         }
         char* token = strtok(line, " ");
-        int j = 0;
+        char j = 0;
         while (token != NULL) {
             switch (j) {
                 case 0:

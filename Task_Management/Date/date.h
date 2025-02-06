@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 /**
  * \brief Structure to represent a date.
@@ -53,6 +54,6 @@ char isDatePassed(struct Date date);
  * \return The parsed date.
  */
 
-struct Date parserDate(const char* date)
+char parserDate(char* date, struct Date* d);
 
 #endif //DATE_H
